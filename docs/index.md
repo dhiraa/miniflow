@@ -81,7 +81,7 @@ Data -> Preprocessing -> Batching -> Model Training -> Evaluation -> Required Ac
 
 ![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 # Software Modeling vs Software Designing
 
