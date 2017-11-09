@@ -1,3 +1,4 @@
+
 ---
 layout: post
 title:  "Miniflow"
@@ -7,6 +8,7 @@ date:   2017-11-09
 mathjax: true
 comments: true
 ---
+
 
 # Miniflow - A simple python code that imitates Tensorflow 
 
@@ -78,9 +80,9 @@ Data -> Preprocessing -> Batching -> Model Training -> Evaluation -> Required Ac
 - Explore how it is implemented 
 - SGD - A simple algorithm to adapt teh weights for descent predictions
 
-![](assets/w2-backprop-graph.png)
+![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{ "/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 # Software Modeling vs Software Designing
 
@@ -223,7 +225,7 @@ class Input(Node):
 
 ## **Topological sorting:** 
 - https://en.wikipedia.org/wiki/Topological_sorting  
-- http://www.geeksforgeeks.org/topological-sorting/ (oh ya I need to keep this in my interview preparation!)  
+- [http://www.geeksforgeeks.org/topological-sorting/](http://www.geeksforgeeks.org/topological-sorting/) (oh ya I need to keep this in my interview preparation!)  
     In order to define your network, you'll need to define the order of operations for your nodes. Given that the input to some node depends on the outputs of others, you need to flatten the graph in such a way where all the input dependencies for each node are resolved before trying to run its calculation. This is a technique called a topological sort.
 
 
@@ -386,14 +388,9 @@ print("{} + {} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict
     Pop:  Add_Op
     Pop:  Add_Op
     Input Nodes:
-    x
     z
     y
-    Pop:  x
-    Feeding value:  4  =====>   x
-    Adding  x to the sorted List
-    Removing x -----> Add_Op
-    Removing Add_Op <----- x
+    x
     Pop:  z
     Feeding value:  10  =====>   z
     Adding  z to the sorted List
@@ -404,6 +401,11 @@ print("{} + {} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict
     Adding  y to the sorted List
     Removing y -----> Add_Op
     Removing Add_Op <----- y
+    Pop:  x
+    Feeding value:  4  =====>   x
+    Adding  x to the sorted List
+    Removing x -----> Add_Op
+    Removing Add_Op <----- x
     
     No input nodes!!! Adding:  Add_Op to the Graph
     
@@ -411,17 +413,17 @@ print("{} + {} + {} = {} (according to miniflow)".format(feed_dict[x], feed_dict
     Adding  Add_Op to the sorted List
     Sorted Nodes:
     
-    x
     z
     y
+    x
     Add_Op
     <------------------------------------ topological_sort
-    
-    ----->Forward pass @  x
     
     ----->Forward pass @  z
     
     ----->Forward pass @  y
+    
+    ----->Forward pass @  x
     Initial value of Add_Op is 0
     x:4 ---> Add_Op:4
     Initial value of Add_Op is 4
@@ -616,11 +618,11 @@ print("\n\noutput: \n", output)
 ```
 
     
-    ----->Forward pass @  W
+    ----->Forward pass @  X
     
     ----->Forward pass @  b
     
-    ----->Forward pass @  X
+    ----->Forward pass @  W
     
     ----->Forward pass @  Linear_OP
     X:
@@ -643,7 +645,9 @@ print("\n\noutput: \n", output)
 
 ### Sigmoid
 
-https://en.wikipedia.org/wiki/Sigmoid_function
+[https://en.wikipedia.org/wiki/Sigmoid_function](https://en.wikipedia.org/wiki/Sigmoid_function)
+
+
 
 $$ S(x) = \frac{1}{1+e^{-x}} $$
 
@@ -746,9 +750,9 @@ print("\n\noutput: \n", output)
     
     ----->Forward pass @  b
     
-    ----->Forward pass @  W
-    
     ----->Forward pass @  X
+    
+    ----->Forward pass @  W
     
     ----->Forward pass @  Linear_OP
     X:
@@ -783,8 +787,8 @@ print("\n\noutput: \n", output)
 ```
 
 ### MSE (Cost/Loss)
-- (https://en.wikipedia.org/wiki/Linear_regression)
-- http://setosa.io/ev/ordinary-least-squares-regression/
+- [https://en.wikipedia.org/wiki/Linear_regression](https://en.wikipedia.org/wiki/Linear_regression)
+- [http://setosa.io/ev/ordinary-least-squares-regression/](http://setosa.io/ev/ordinary-least-squares-regression/)
 
 $MSE(\theta) = \frac{1}{N} \sum_{i=1}^N \left (f(y_i|\theta)-a_i \right )^2$
 
@@ -916,11 +920,6 @@ Rerferences:
 - http://cs231n.github.io/optimization-2/
 - https://en.wikipedia.org/wiki/Backpropagation
 
-
-```python
-
-```
-
 With ASCII Art:
 
 ```
@@ -976,12 +975,23 @@ $\frac{\partial f}{\partial y} = \frac{\partial f}{\partial q} \frac{\partial q}
 $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}{\partial x} = -4 . 1 = -4$
 
 
-![](miniflow_img/gradients_in_graph.png)
+![](docs/assets/miniflow/gradients_in_graph.png)
+
+![]({{"/assets/miniflow/gradients_in_graph.png" | absolute_url }})
 
 **Another Example **
-![](img/back_prop_example1.png)
 
-![](miniflow_img/back_prop_example1_sol.png)
+![](docs/assets/miniflow/back_prop_example1.png)
+
+![]({{"/assets/miniflow/back_prop_example1.png" | absolute_url }})
+
+
+
+![](docs/assets/miniflow/back_prop_example1_sol.png)
+
+![]({{"/assets/miniflow/back_prop_example1_sol.png" | absolute_url }})
+
+
 
 
 ```python
@@ -1006,7 +1016,10 @@ def forward_and_backward(graph):
 
 Let's consider a network with a linear node $l_1$, a sigmoid node $s$, and another linear node $l_2$, followed by an MSE node to calculate the cost, $C$.
 
-![](two-layer-graph.png)
+![](docs/assets/miniflow/two-layer-graph.png)
+
+![]({{"/assets/miniflow/two-layer-graph.png" | absolute_url }})
+
 
 We can see that each of the values of these nodes flows forwards and eventually produces the cost $C$. 
 For example, the value of the second linear node $l_2$ goes into the cost node and determines the value of that node. Accordingly, a change in $l_2$ will produce a change in $C$. We can write this relationship between the changes as a gradient,
@@ -1021,7 +1034,10 @@ $\frac{\partial C}{\partial w_2}$
 
 We can see in the graph that $w_2$ is connected to $l_2$, so a change in $w_2$ is going to create a change in $l_2$ which then creates a change in $C$. We can assign blame to $w_2$ by sending the cost gradient back through the network. First you have how much $l_2$ affected $C$, then how much $w_2$ affected $l_2$. Multiplying these gradients together gets you the total blame attributed to $w_2$.
 
-![](miniflow_img/w2-backprop-graph.png)
+![](docs/assets/miniflow/w2-backprop-graph.png)
+
+![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+
 
 Multiplying these gradients is just an application of the chain rule:
 $$\frac{\partial C}{\partial w_2} = \frac{\partial C}{\partial l_2} * \frac{\partial l_2}{\partial w_2}$$
@@ -1054,8 +1070,9 @@ $$
 This is the gradient you use in the gradient descent update for $w_2$. You can see what we did here, we walked back through the graph and multiplied all the gradients we found along the way.
 Now, let's go deeper and calculate the gradient for $w_1$. Here we use the same method as before, walking backwards through the graph.
 
-![](miniflow_img/w1-backprop-graph.png)
+![](docs/assets/miniflow/w1-backprop-graph.png)
 
+![]({{"/assets/miniflow/w1-backprop-graph.png" | absolute_url }})
 
 Hopefully it's clear now how to write out the gradient for $w_1$ just by looking at the graph. Using the chain rule, we'll write out the gradients for each node going backwards through the graph until we get to $w_1$.
 
@@ -1162,9 +1179,9 @@ print('\n\n', gradients)
 ```
 
     
-    ----->Forward pass @  b
-    
     ----->Forward pass @  y
+    
+    ----->Forward pass @  b
     
     ----->Forward pass @  W1
     
@@ -1340,6 +1357,29 @@ print('\n\n', gradients)
     
     
     =============================
+    	BP @ b
+    =============================
+    
+    Initial Gradients:
+    ------------------
+    W.r.t b: 
+    ------------
+    0
+    
+    
+    Getting  Linear_OP gradient : 
+    <-----------------------------
+     [ -5.01028709e-05]
+    
+    
+    Calculated Final Gradient:(Note: Calculated by next node in the graph!!!)
+    ----------------
+    W.r.t  b  : 
+    -------------
+     [ -5.01028709e-05]
+    
+    
+    =============================
     	BP @ y
     =============================
     
@@ -1364,29 +1404,6 @@ print('\n\n', gradients)
      [ 1.9999833]]
     
     
-    =============================
-    	BP @ b
-    =============================
-    
-    Initial Gradients:
-    ------------------
-    W.r.t b: 
-    ------------
-    0
-    
-    
-    Getting  Linear_OP gradient : 
-    <-----------------------------
-     [ -5.01028709e-05]
-    
-    
-    Calculated Final Gradient:(Note: Calculated by next node in the graph!!!)
-    ----------------
-    W.r.t  b  : 
-    -------------
-     [ -5.01028709e-05]
-    
-    
      [array([[ -3.34017280e-05,  -5.01025919e-05],
            [ -6.68040138e-05,  -1.00206021e-04]]), array([[ 0.9999833],
            [ 1.9999833]]), array([[  5.01028709e-05],
@@ -1394,8 +1411,8 @@ print('\n\n', gradients)
 
 
 # 3. SGD with Boston Dataset
-- https://www.youtube.com/watch?v=GCvWD9zIF-s
-- https://imgur.com/SmDARzn
+- [https://www.youtube.com/watch?v=GCvWD9zIF-s](https://www.youtube.com/watch?v=GCvWD9zIF-s)
+- [https://imgur.com/SmDARzn](https://imgur.com/SmDARzn)
 
 ### [Gradient Descent](https://en.wikipedia.org/wiki/Gradient_descent)
 $$x = x - learning\ rate * \frac{\partial cost}{\partial x}$$
@@ -1574,13 +1591,21 @@ plot.plot(range(len(total_loss)), total_loss)
 
 
 
-    [<matplotlib.lines.Line2D at 0x7f2aab21b400>]
+    [<matplotlib.lines.Line2D at 0x7f350a0e24a8>]
 
 
 
 
 ![png](output_58_1.png)
 
+
+![](docs/assets/miniflow/output_58_1.png.png)
+
+![]({{"/assets/miniflow/output_58_1.png" | absolute_url }})
+
+![](docs/assets/miniflow/output_58_1.png)
+
+![]({{"/assets/miniflow/output_58_1.png" | absolute_url }})
 
 
 ```python
