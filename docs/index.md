@@ -1,3 +1,12 @@
+---
+layout: post
+title:  "Miniflow"
+description: "A simple python code that imitates Tensorflow "
+excerpt: "A simple python code that imitates Tensorflow "
+date:   2017-11-09
+mathjax: true
+comments: true
+---
 
 # Miniflow - A simple python code that imitates Tensorflow 
 
