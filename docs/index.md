@@ -81,7 +81,7 @@ Data -> Preprocessing -> Batching -> Model Training -> Evaluation -> Required Ac
 
 ![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 # Software Modeling vs Software Designing
 
@@ -598,7 +598,7 @@ class Linear(Node):
 
 ![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 
 ```python
@@ -953,19 +953,19 @@ $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}
 
 ![](docs/assets/miniflow/gradients_in_graph.png)
 
-![]({{"/miniflow/assets/miniflow/gradients_in_graph.png" | absolute_url }})
+![]({{"/assets/miniflow/gradients_in_graph.png" | absolute_url }})
 
 **Another Example **
 
 ![](docs/assets/miniflow/back_prop_example1.png)
 
-![]({{"/miniflow/assets/miniflow/back_prop_example1.png" | absolute_url }})
+![]({{"/assets/miniflow/back_prop_example1.png" | absolute_url }})
 
 
 
 ![](docs/assets/miniflow/back_prop_example1_sol.png)
 
-![]({{"/miniflow/assets/miniflow/back_prop_example1_sol.png" | absolute_url }})
+![]({{"/assets/miniflow/back_prop_example1_sol.png" | absolute_url }})
 
 
 
@@ -994,7 +994,7 @@ Let's consider a network with a linear node $l_1$, a sigmoid node $s$, and anoth
 
 ![](docs/assets/miniflow/two-layer-graph.png)
 
-![]({{"/miniflow/assets/miniflow/two-layer-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/two-layer-graph.png" | absolute_url }})
 
 
 We can see that each of the values of these nodes flows forwards and eventually produces the cost $C$. 
@@ -1012,7 +1012,7 @@ We can see in the graph that $w_2$ is connected to $l_2$, so a change in $w_2$ i
 
 ![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 
 Multiplying these gradients is just an application of the chain rule:
@@ -1048,7 +1048,7 @@ Now, let's go deeper and calculate the gradient for $w_1$. Here we use the same 
 
 ![](docs/assets/miniflow/w1-backprop-graph.png)
 
-![]({{"/miniflow/assets/miniflow/w1-backprop-graph.png" | absolute_url }})
+![]({{"/assets/miniflow/w1-backprop-graph.png" | absolute_url }})
 
 Hopefully it's clear now how to write out the gradient for $w_1$ just by looking at the graph. Using the chain rule, we'll write out the gradients for each node going backwards through the graph until we get to $w_1$.
 
@@ -1573,7 +1573,7 @@ plot.plot(range(len(total_loss)), total_loss)
 
 ![](docs/assets/miniflow/output_58_1.png.png)
 
-![]({{"/miniflow/assets/miniflow/output_58_1.png" | absolute_url }})
+![]({{"/assets/miniflow/output_58_1.png" | absolute_url }})
 
 
 ```python
