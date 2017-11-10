@@ -27,7 +27,6 @@ permalink: none
 markdown: kramdown
 theme: minima
 gems:
-  - jekyll-jupyter-notebook
   - jekyll-feed
   - jekyll-seo-tag
 exclude:
