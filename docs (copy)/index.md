@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title:  "MiniFlow"
 description: "A simple python code that imitates Tensorflow "
 excerpt: "A simple python code that imitates Tensorflow "
