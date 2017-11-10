@@ -13,7 +13,7 @@ layout: default
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ sub_domain | append: '/' | append: post.url | relative_url }}">{{ post.title | escape }}</a>
+        <a class="post-link" href="{{ sub_domain | append: post.url | relative_url }}">{{ post.title | escape }}</a>
         {{ post.excerpt }}
       </li>
     {% endfor %}
