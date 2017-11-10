@@ -1,5 +1,5 @@
 ---
-layout: ./_layouts/post
+layout: post
 title:  "MiniFlow"
 description: "A simple python code that imitates Tensorflow "
 excerpt: "A simple python code that imitates Tensorflow "
