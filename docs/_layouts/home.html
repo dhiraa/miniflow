@@ -12,7 +12,7 @@ layout: default
     {% for post in site.posts %}
       <li>
         <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-        <a class="post-link" href="{{ post.url | absolute_url }}">{{ post.title | escape }}</a>
+        <a class="post-link" href="miniflow/{{ post.url | absolute_url }}">{{ post.title | escape }}</a>
         {{ post.excerpt }}
       </li>
     {% endfor %}
