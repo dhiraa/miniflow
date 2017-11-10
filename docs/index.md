@@ -9,7 +9,7 @@ comments: true
 ---
 
 
-# Miniflow - A simple python code that imitates Tensorflow 
+# [Miniflow](https://github.com/iaja/miniflow) - A simple python code that imitates Tensorflow 
 
 # Setup
 
@@ -596,7 +596,9 @@ class Linear(Node):
         if(DEBUG) : print('W.r.t ',self.b.name,': \n-------------\n', self.gradients[self.inbound_nodes[2]])
 ```
 
-![](w2-backprop-graph.png)
+![](docs/assets/miniflow/w2-backprop-graph.png)
+
+![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 
 ```python
@@ -951,19 +953,19 @@ $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial q} \frac{\partial q}
 
 ![](docs/assets/miniflow/gradients_in_graph.png)
 
-![]({{"/assets/miniflow/gradients_in_graph.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/gradients_in_graph.png" | absolute_url }})
 
 **Another Example **
 
 ![](docs/assets/miniflow/back_prop_example1.png)
 
-![]({{"/assets/miniflow/back_prop_example1.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/back_prop_example1.png" | absolute_url }})
 
 
 
 ![](docs/assets/miniflow/back_prop_example1_sol.png)
 
-![]({{"/assets/miniflow/back_prop_example1_sol.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/back_prop_example1_sol.png" | absolute_url }})
 
 
 
@@ -992,7 +994,7 @@ Let's consider a network with a linear node $l_1$, a sigmoid node $s$, and anoth
 
 ![](docs/assets/miniflow/two-layer-graph.png)
 
-![]({{"/assets/miniflow/two-layer-graph.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/two-layer-graph.png" | absolute_url }})
 
 
 We can see that each of the values of these nodes flows forwards and eventually produces the cost $C$. 
@@ -1010,7 +1012,7 @@ We can see in the graph that $w_2$ is connected to $l_2$, so a change in $w_2$ i
 
 ![](docs/assets/miniflow/w2-backprop-graph.png)
 
-![]({{"/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/w2-backprop-graph.png" | absolute_url }})
 
 
 Multiplying these gradients is just an application of the chain rule:
@@ -1046,7 +1048,7 @@ Now, let's go deeper and calculate the gradient for $w_1$. Here we use the same 
 
 ![](docs/assets/miniflow/w1-backprop-graph.png)
 
-![]({{"/assets/miniflow/w1-backprop-graph.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/w1-backprop-graph.png" | absolute_url }})
 
 Hopefully it's clear now how to write out the gradient for $w_1$ just by looking at the graph. Using the chain rule, we'll write out the gradients for each node going backwards through the graph until we get to $w_1$.
 
@@ -1569,17 +1571,9 @@ plot.plot(range(len(total_loss)), total_loss)
 
 
 
-
-![png](output_58_1.png)
-
-
 ![](docs/assets/miniflow/output_58_1.png.png)
 
-![]({{"/assets/miniflow/output_58_1.png" | absolute_url }})
-
-![](docs/assets/miniflow/output_58_1.png)
-
-![]({{"/assets/miniflow/output_58_1.png" | absolute_url }})
+![]({{"/miniflow/assets/miniflow/output_58_1.png" | absolute_url }})
 
 
 ```python
