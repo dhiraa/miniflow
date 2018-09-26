@@ -13,7 +13,7 @@ Miniflow - Neural Network Modeling from Scratch that imitate TensorFlow in a way
 - Gradient Descent
 
 
-### [Notebook](MiniFlow.ipynb)
+### [Notebook](2017-11-09-MiniFlow.ipynb)
 ### [Code](MiniFlow.py)
 
 
